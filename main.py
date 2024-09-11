@@ -4,7 +4,7 @@ with open("data.csv",'r')as f:
     x=csv.reader(f)
     data=list(x)
     l=[data[i][1] for i in range(1,len(data))]
-sl.set_page_config(page_title='clinic',page_icon="icon1.jpg")
+sl.set_page_config(page_title='clinic',page_icon="icon.webp")
 sl.header("welcome to clinic")
 col1,col2,col3=sl.columns(3)
 name=col1.text_input("enter your name")
