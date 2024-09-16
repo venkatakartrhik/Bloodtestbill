@@ -8,7 +8,6 @@ col1,col2,col3=st.columns(3)
 col1.image("cliniclogo.jpg",width=200)
 col2.header("Welcome to Blood Test Bill Generator")
 # Patient Information Form
-
 st.subheader("Patient Information")
 patient_name = st.text_input("Patient Name")
 patient_age = st.text_input("Patient Age")
@@ -55,8 +54,6 @@ if selected_tests:
         st.write(f"*Tax Amount ({5}%):* INR {tax_amount}")
         st.write(f"### *Total Cost:* INR {total_cost}")
 
-
-
         pdf = FPDF()
         pdf.add_page()
         # Add title and patient information
@@ -66,7 +63,7 @@ if selected_tests:
         pdf.cell(200, 10, txt=f"Patient Name: {patient_name}", ln=True)
         pdf.cell(200, 10, txt=f"Age: {patient_age} | Gender: {patient_gender}", ln=True)
         pdf.cell(200, 10, txt=f"Date of Test: {test_date}", ln=True)
-        pdf.cell(300, 10, txt="Test Details:")
+        pdf.cell(200, 10, txt=f"Test Details:")
         pdf.ln(10)  # Add space
         
         # Table Header
@@ -115,5 +112,5 @@ if selected_tests:
             file_name=pdf_output,
             mime="application/pdf"
         )
-    else:
-        st.warning("Please select at least one test.")
+else:
+    st.warning("Please select at least one test.")
